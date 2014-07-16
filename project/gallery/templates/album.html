@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block nbar %}
+ 
+{% endblock %}
+        
+{% block content %}
+
+<h1> Фотографии в альбоме "{{album.title}}" </h1>
+
+
+{% if album.image_set.count > 0 %}
+
+{% for c in album.image_set.all %}
+<div class="row">
+        <div class="col-xs-3">
+            <a href="/galleries/show_image/{{c.id}}" class="thumbnail">
+                <img src="/media/{{c.image}}" alt="300x200">
+            </a>
+            <p>
+        </div>
+</div>
+{% endfor %}
+
+{% else %}
+<p class="lead">В этом альбоме пока нет ни одной фотографии.</p>
+{% endif %}
+<p><a class="btn btn-primary" href="/galleries/albums/">Назад</a></p>
+{% endblock %}
+

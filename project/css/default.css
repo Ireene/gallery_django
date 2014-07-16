@@ -1,0 +1,49 @@
+
+
+
+
+#page .logs{
+        width: 960px;
+        text-align: left;
+        margin: 10px 100px 20px 100px;
+        
+}
+
+#page {
+        width: 960px;
+        text-align: left;
+        margin: 10px auto 20px auto;
+        
+}
+
+#sidebar ul {
+
+
+z-index:10;
+border:solid 1px #e6e7df;
+background-color:#fff;
+
+}        
+#sidebar ul li a{
+
+text-transform:capitalize;
+font-size:14px;
+font-weight:normal;
+line-height:33px;
+z-index:10;
+color:#333;
+}
+#sidebar {
+        float: left;
+        width: 250px;
+        border: 1px;
+        padding: 20px;
+}
+
+#content {
+        float: left;
+        width: auto;
+        border: 1px;
+        padding: auto;
+}
+

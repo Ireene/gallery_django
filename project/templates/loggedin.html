@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block nbar %}
+<li><a href="/galleries/create_album">Создать новый альбом</a></li>
+
+{% endblock %}
+{% block content %}
+
+   <h2>{{full_name}} зашел в систему </h2>
+   
+   {% if Notifications.count > 0 %}
+      <h3>Notifications</h3>
+         {% for n in notifications %}
+            <p><a href="/notification/show/{{n.id}}">{{n.title}}</a></p>
+         {% endfor %}
+         
+      {% endif %}
+            
+<p>Нажмите <a href="/accounts/logout/">сюда</a> чтобы выйти. </p>
+
+   
+{% endblock %}

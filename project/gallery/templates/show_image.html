@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block nbar %}
+    
+{% endblock %}
+        
+{% block content %}
+
+<h1 class="text-left">{{image.title}}</h1>
+<br>
+
+<p><img src="/media/{{image.image}}" /></p>
+
+<br>
+<p class="lead">{{image.summary}}</p>
+
+<p><a class="btn btn-primary" href="/galleries/delete_image/{{image.id}}">Удалить фотографию</a></p>
+<p><a class="btn btn-primary" href="/galleries/add_comment/{{image.id}}">Добавить комментарий</a></p>
+
+<h2>Комментарии:</h2>
+
+{% if image.comment_set.count > 0 %}
+
+{% for c in image.comment_set.all %}
+    <p class="lead">{{c.name}} написал(а):</p><p>{{c.body}}</p>
+{% endfor %}
+
+{% else %}
+
+<p class="lead">Комментариев нет.</p>
+
+{% endif %}
+
+{% endblock %}
+

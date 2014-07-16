@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %}{% endblock %}</title>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" type="text/css" href="{% static "assets/css/default.css" %}" >
+        
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <script src="http://code.jquery.com/jquery.min.js" type="text/javascript"></script>
+
+        <script src="/static/assets/js/ajax.js" type="text/javascript"></script>
+        <style>
+        body { padding-top: 50px; 
+      }
+    </style>
+</head>
+
+<body>
+
+
+<div class="navbar  navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <ul class="nav nav-tabs">
+                <li><a href="/galleries/albums/">Альбомы</a></li>
+                <li><a href="/galleries/create_image">Добавить изображение</a></li>
+                
+                {% if user.is_authenticated %}
+                <li class="pull-right"><a href="/accounts/logout/">Выход</a></li>
+                <li class="pull-right"><a href="#">Текущий пользователь: {{request.user.username}}</a></li>
+                
+                {% else %}
+                <li class="pull-right"><a href="/accounts/login/">Зайдите в систему</a></li>
+                {% endif %}
+                {% block nbar %}
+                {% endblock %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+    <div id="page">
+    
+    <div id="sidebar">
+        {% block sidebar %}
+        
+        {% endblock %}
+    </div>
+    
+    <div id="content">
+        {% block content %}This is the content area{% endblock %}
+        
+
+    </div>
+    
+    </div>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</body>
+
+</html>

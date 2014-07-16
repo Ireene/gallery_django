@@ -1,0 +1,35 @@
+
+{% extends "base.html" %}
+
+{% block nbar %}
+<li><a href="/galleries/create_album">Создать новый альбом</a></li>
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="row-fluid">
+
+<div class="span6">
+        <h1>Все альбомы:</h1>
+
+{% if albums.count > 0 %}
+
+{% for album in albums %}
+
+<h2><a href="/galleries/get/{{album.id}}/">{{album.title}}</a></h2>
+
+
+{% endfor %}
+
+{% else %}
+
+<p class="lead">Еще не создано ни одного альбома.</p>
+
+{% endif %}
+
+</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% crispy form %}
+
+{% block nbar %}
+<a href="/galleries/get/{{image.id}}">Cancel</a></li>
+{% endblock %}
+        
+{% block content %}
+
+<form action="/galleries/add_comment/{{image.id}}" method="post">{% csrf_token %}
+<ul>
+    {{form|crispy}}
+</ul>
+
+<input type="submit" name="submit" value="Post Comment" class="btn btn-primary">
+</form>
+
+{% endblock %}

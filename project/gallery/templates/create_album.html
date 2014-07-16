@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% crispy form %}
+
+{% block nbar %}
+<li><a href="/galleries/albums">Отмена</a></li>
+
+{% endblock %}
+        
+{% block content %}
+
+<form action="/galleries/create_album/" method="post" enctype="multipart/form-data">{% csrf_token %}
+<ul>
+    {{form|crispy}}
+</ul>
+<center>
+<input type="submit" name="submit" value="Создать новый альбом" class="btn btn-primary">
+</center>
+</form>
+
+{% endblock %}

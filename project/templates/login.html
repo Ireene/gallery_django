@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="hero-unit">
+<div class="container">
+    {% if form.errors %}
+        <p class="error">Неверное имя пользователя или пароль!</p>
+    {% endif %}
+    
+<form action="/accounts/auth/" method="post">{% csrf_token %}
+    
+<h3>Вход в систему</h3> <br/>
+    <label for="username">Логин:</label>
+    <input type="text" name="username" class="input-block-level" value="" id="username" size="30"/>
+    </br></br>
+    <label for="password">Пароль:</label>
+    <input type="password" name="password" class="input-block-level" value="" id="password" size="30"/>
+    </br></br>
+    <input type="submit" value="login" class="btn btn-primary"/>
+
+   
+</form>
+</div>
+</div>
+{% endblock %}
